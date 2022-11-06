@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+	<div class="container">
+	  <div class="brand-title">LIGNE LIVRAISON </div>
+	
+	 <div class="inputs">
+		<form action="#" th:action="@{/ligneLivs}" th:object="${ligneLiv}" method="POST">
+				
+			<label> Quantite </label>
+							<input
+							type = "text"
+							name = "qte_liv"
+							th:field = "*{qte_liv}"
+			
+							placeholder="" 
+							/>
+							<label> Article </label>
+				<select th:field=*{article.codeArt} >
+            <option th:each="p:${articles}"
+                    th:value="${p.codeArt}"
+                    th:text="${p.codeArt}">
+            </option>
+        </select>
+				<label> Livraison </label>
+						
+								 <select th:field=*{livraison.num_liv} >
+            <option th:each="p:${livraisons}"
+                    th:value="${p.num_liv}"
+                    th:text="${p.num_liv}">
+            </option>
+        </select>
+				
+				<button type="submit" > Save</button>
+		</form>
+		
+			</div>
+		
+		
+		<a th:href ="@{/ligneLivs}"> Back to LIGNE LIVRAISON List</a>
+	</div>
+</body>
+</html>

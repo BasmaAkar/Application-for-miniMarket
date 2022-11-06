@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+
+<head>
+<meta charset="utf-8">
+<title>[[${pageTitle}]]</title>
+
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+<div class="container">
+<div class="brand-logo"></div>
+	  <div class="brand-title">Fournisseur</div>
+	
+	 <div class="inputs">
+		<form action="#" th:action="@{/fournisseurs/{id} (id=${fournisseur.cod_four})}" th:object="${fournisseur}" method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+		<label> Nom Fournisseur </label>
+							<input
+							type = "text"
+							name = "nom_four"
+							th:field = "*{nom_four}"
+							class = "form-control"
+							placeholder="Entrer Nom Fournisseur" 
+							/>
+			
+			<label> Ville Fournisseur </label>
+							<input
+							type = "text"
+							name = "ville_four"
+							th:field = "*{ville_four}"
+							class = "form-control"
+							placeholder="Entrer ville Fournisseur" 
+							/>
+				
+					<label> Tel Fournisseur </label>
+							<input
+							type = "text"
+							name = "tel_four"
+							th:field = "*{tel_four}"
+							class = "form-control"
+							placeholder="Enter Tel Fournisseur" 
+							/>
+				
+		
+	
+				<button type="submit" > Update </button>
+		</form>
+	
+		
+		<a th:href = "@{/fournisseurs}"> Back to  fournisseurs List</a>
+	</div>
+		</div>
+	
+</body>
+</html>

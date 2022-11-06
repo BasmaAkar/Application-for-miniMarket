@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+
+</head>
+<body>
+	<div th:replace="home :: menu"/>
+
+	<div class="container">
+	
+	  <div class="brand-title">Linge de commande</div>
+	
+	 <div class="inputs">
+		<form action="#" th:action="@{/ligne_cmd/save}" th:object="${ligne_cmd}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			 <label>numero de ligne</label>
+     	  <input type="number" th:field="*{numLigne}" placeholder="numero de ligne" />		
+     	   <label>Quantite</label>					
+		<input type="number" th:field="*{qteCmd}" placeholder="qteCmd"required>
+		 <label>Article</label>
+		 
+		  <select th:field=*{article.codeArt} >
+            <option th:each="p:${articles}"
+                    th:value="${p.codeArt}"
+                    th:text="${p.codeArt}">
+            </option>
+        </select>	
+				
+		 
+		 
+		 
+		 <label>Commande</label>
+		 
+		 
+		  <select th:field=*{commande.numCmd} >
+            <option th:each="p:${commandes}"
+                    th:value="${p.numCmd}"
+                    th:text="${p.numCmd}">
+            </option>
+        </select>	
+				
+		<button type="submit" > Save</button>
+		</form>
+		
+		<a th:href = "@{/Ligne_cmds}"> Back to client List</a>
+	</div>
+		</div>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+	<div class="container">
+		<div class="brand-logo"></div>
+	  <div class="brand-title">Article</div>
+	
+	 <div class="inputs">
+
+		<form action="#" th:action="@{/commande/save}" th:object="${commande}"
+			method="POST">
+				
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{numCmd}" />
+				 <label>Date</label>
+								
+				<input  type="date"  th:field="*{dateCmd}" placeholder="date commande" required>
+										 <label>Client</label>
+			 <select th:field=*{client.codeCli} >
+            <option th:each="p:${clients}"
+                    th:value="${p.codeCli}"
+                    th:text="${p.codeCli}">
+            </option>
+        </select>	
+				
+				
+				<button type="submit"> Save</button>
+		</form>
+		
+		
+		<a th:href = "@{/Commandes}"> Back to client List</a>
+	</div>
+		</div>
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+	<div class="container">
+	  <div class="brand-title">Fournisseur </div>
+	
+	 <div class="inputs">
+		<form action="#" th:action="@{/fournisseurs/save}" th:object="${fournisseur}"
+			method="POST">
+							<input type="hidden" th:field="*{cod_four}" />
+				
+		<label> Nom Fournisseur </label>
+							<input
+							type = "text"
+					
+							th:field = "*{nom_four}"
+							placeholder="Entrer le nom de fournisseur" 
+							/>
+							
+							<label> Ville Fournisseur </label>
+							<input
+							type = "text"
+					
+							th:field = "*{ville_four}"
+							placeholder="Entrer ville fournisseur" 
+							/>
+				<label> Tel Fournisseur </label>
+				<input type = "text"  th:field = "*{tel_four}" placeholder="Entrer tel fournisseur"  />
+			
+				
+				<button type="submit" > Save</button>
+		</form>
+		
+			</div>
+		
+		
+		<a th:href = "@{/fournisseurs}"> Back to client List</a>
+	</div>
+</body>
+</html>

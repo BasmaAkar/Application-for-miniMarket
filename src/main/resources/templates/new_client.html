@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/form1.css}" rel="stylesheet">
+<link th:href="@{/form.css}" rel="stylesheet">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+	<div class="container">
+	  <div class="brand-title">Client</div>
+	
+	 <div class="inputs">
+		<form action="#" th:action="@{/client/save}" th:object="${client}"
+			method="POST">
+				
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{codeCli}" />
+									 <label>Nom</label>
+			
+			<input type="text" th:field="*{nomCli}"   placeholder="Nom" required>
+										 <label>Prenom</label>
+				
+				<input placeholder="prenom" type="text" th:field="*{preCli}"  required>
+										 <label>Adress</label>
+				
+				
+				<input type="text" th:field="*{adrCli}"  placeholder="adress" required>
+										 <label>Tele</label>
+				
+				<input type="text" th:field="*{telCli}" placeholder="tele"  required>
+										 <label>Ville</label>
+				
+				<input type="text" th:field="*{villeCli}" placeholder="ville" required>
+				
+				<button type="submit" > Save</button>
+		</form>
+		
+			</div>
+		
+		
+		<a th:href = "@{/Clients}"> Back to client List</a>
+	</div>
+</body>
+</html>

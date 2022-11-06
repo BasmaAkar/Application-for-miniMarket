@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<link th:href="@{/form.css}" rel="stylesheet">
+<head>
+<meta charset="utf-8">
+<title>Products</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="home :: menu"/>
+
+
+<div class="container">
+<a th:href = "@{/showNewclientForm}" > Add Client </a>
+
+			<table class="table  table-hover  bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>ID</th>
+      <th>NOM</th>
+      <th>PRENOM</th>
+      <th>TELE</th>
+      <th>VILLE</th>
+            <th>ACTION</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+   <tr  th:each="p:${listClients}">
+   
+  <td  class="theme" th:text="${p.codeCli}"></td>
+ 
+ <td th:text="${p.nomCli}"></td>
+ <td th:text="${p.preCli}"></td>
+  <td th:text="${p.telCli}"></td>
+  <td th:text="${p.villeCli}"></td>
+      <td>
+        <a th:href="@{/client/edit/{id}(id=${p.codeCli})}" class="btn btn-link btn-sm btn-rounded">Edit</a>
+          	<a th:href="@{/deleteClient/{id}(id=${p.codeCli})}" class="btn btn-link btn-sm btn-rounded">Delete</a>
+          
+   
+      </td>
+          </tr>
+      
+    <tr>
+    
+   
+  </tbody>
+</table>
+			
+  </div>
+
+</div>
+</body>
+</html>
