@@ -21,15 +21,6 @@ L’application doit gérer l’approvisionnement de mini-Market, en implémenta
 • RG8 : La quantité en stock est une information qu’on peut calculer à partir de la quantité livrée et la quantité 
 commandée. 
 
-**### Technologies:** 
-• Développement de la partie Backend « Java, Spring Boot, Maven, Spring DATA « Hibernate, JPA ». 
-• Développement de la partie Front End « Framework Java Script (Angular, react JS, …), Thymeleaf, 
-
-
-• RG6 : Une société de distribution a un seul fournisseur. 
-• RG7 : Un fournisseur peut livrer les articles pour plusieurs sociétés de distribution. 
-• RG8 : La quantité en stock est une information qu’on peut calculer à partir de la quantité livrée et la quantité 
-commandée. 
 
 **### Technologies:** 
 • Développement de la partie Backend « Java, Spring Boot, Maven, Spring DATA « Hibernate, JPA ». 
