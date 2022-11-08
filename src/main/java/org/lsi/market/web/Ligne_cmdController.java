@@ -45,6 +45,12 @@ public class Ligne_cmdController {
 	@PostMapping(path="/ligne_cmd/save") 
 	private String saveLigne_cmd(@ModelAttribute("ligne_cmd") Ligne_cmd c) { 
 		ligne_cmdrepository.save(c);
+		Long id =c.getArticle().getCodeArt();
+		Article article= articlerepository.findById(id).get();
+		float qts = article.getQteStock()-c.getQteCmd();
+		article.setQteStock(qts);
+
+		articlerepository.save(article);
       return "redirect:/Ligne_cmds";
 	 }
 	
@@ -59,7 +65,7 @@ public class Ligne_cmdController {
 	
 	
 	@GetMapping("/Ligne_cmd/edit/{id}")
-	public String showFormForUpdate(@PathVariable (value ="id") long id, Model model) {
+	public String showFormForUpdate(@PathVariable (value ="id") Long id, Model model) {
 		
 		// get employee from the service
 		Ligne_cmd ligne_cmd = ligne_cmdrepository.findByNumLigne(id);

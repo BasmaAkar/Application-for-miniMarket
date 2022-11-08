@@ -76,7 +76,7 @@ public class ClientController {
 	
 	
 	@GetMapping("/client/edit/{id}")
-	public String showFormForUpdate(@PathVariable (value ="id") long id, Model model) {
+	public String showFormForUpdate(@PathVariable (value ="id") Long id, Model model) {
 		
 		// get employee from the service
 		Client client = clientRepository.findById(id).get();

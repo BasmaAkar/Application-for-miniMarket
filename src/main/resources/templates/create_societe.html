@@ -14,12 +14,14 @@
 <body>
 <div th:replace="home :: menu"/>
 
+
 	<div class="container">
 	  <div class="brand-title">Societe </div>
 	
 	 <div class="inputs">
 		<form action="#" th:action="@{/societes}" th:object="${societe}"
 			method="POST">
+			<input type="hidden" th:field="*{cod_ste}" />
 				
 			<label> Nom Societe </label>
 							<input
@@ -58,7 +60,7 @@
             </option>
         </select>	
 			
-				<button type="submit" > Save</button>
+				<button type="submit"class="button-62"  > Save</button>
 		</form>
 		
 			</div>

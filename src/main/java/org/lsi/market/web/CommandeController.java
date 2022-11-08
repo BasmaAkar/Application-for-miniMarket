@@ -56,7 +56,7 @@ public class CommandeController {
 	
 	
 	@GetMapping("/Commande/edit/{id}")
-	public String showFormForUpdate(@PathVariable (value ="id") long id, Model model) {
+	public String showFormForUpdate(@PathVariable (value ="id") Long id, Model model) {
 		
 		// get employee from the service
 		Commande commande = commanderepository.findById(id).get();

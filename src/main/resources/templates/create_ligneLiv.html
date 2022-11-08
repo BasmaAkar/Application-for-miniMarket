@@ -19,7 +19,8 @@
 	
 	 <div class="inputs">
 		<form action="#" th:action="@{/ligneLivs}" th:object="${ligneLiv}" method="POST">
-				
+		
+			<input type="hidden" th:field="*{num_ligneliv}" />
 			<label> Quantite </label>
 							<input
 							type = "text"
@@ -36,15 +37,14 @@
             </option>
         </select>
 				<label> Livraison </label>
-						
-								 <select th:field=*{livraison.num_liv} >
+           <select th:field=*{livraison.num_liv} >
             <option th:each="p:${livraisons}"
                     th:value="${p.num_liv}"
                     th:text="${p.num_liv}">
             </option>
         </select>
 				
-				<button type="submit" > Save</button>
+				<button type="submit" class="button-62" > Save</button>
 		</form>
 		
 			</div>

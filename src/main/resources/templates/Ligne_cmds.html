@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org">
 <link th:href="@{/form.css}" rel="stylesheet">
+<link th:href="@{/table.css}" rel="stylesheet">
 
 <head>
 <meta charset="utf-8">
@@ -13,10 +14,10 @@
 
 
 <div class="container">
-<a th:href = "@{/showNewLigne_cmdsForm}" class="btn btn-link btn-sm btn-rounded"> Add Ligne de Commande </a>
+<a th:href = "@{/showNewLigne_cmdsForm}" class="button-62"> Add Ligne de Commande </a>
 
-			<table class="table  table-hover  bg-white">
-  <thead class="bg-light">
+			<table  class="rwd-table mt-2">
+   <tbody>
     <tr>
  <th>ID</th>
      <th>Quantité</th>
@@ -27,8 +28,8 @@
      <th> Actions </th>
       
     </tr>
-  </thead>
-  <tbody>
+  
+
 
   
  <tr th:each="p:${listLigne_cmds}">

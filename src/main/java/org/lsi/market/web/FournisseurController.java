@@ -60,7 +60,7 @@ public class FournisseurController {
 		return "edit_fournisseur";
 	}*/
 	@GetMapping("/fournisseurs/edit/{id}")
-	public String editLivraisonForm(@PathVariable (value ="id") long id, Model model) {
+	public String editLivraisonForm(@PathVariable (value ="id") Long id, Model model) {
 		
 		// get employee from the service
 		Fournisseur  fournisseur  = fournisseurRepository.findById(id).get();

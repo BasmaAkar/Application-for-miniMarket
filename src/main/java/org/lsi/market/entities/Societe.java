@@ -15,7 +15,7 @@ public class Societe {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cod_ste;
+	private Long cod_ste;
 	
 	@Column(name = "nom_societe", nullable = false)
 	private String nom_ste;
@@ -39,7 +39,7 @@ public class Societe {
 		
 	}
 
-	public Societe(int cod_ste, String nom_ste, String tel_ste, String fax_ste, String ville_ste) {
+	public Societe(Long cod_ste, String nom_ste, String tel_ste, String fax_ste, String ville_ste) {
 		super();
 		this.cod_ste = cod_ste;
 		this.nom_ste = nom_ste;
@@ -48,11 +48,11 @@ public class Societe {
 		this.ville_ste = ville_ste;
 	}
 
-	public int getCod_ste() {
+	public Long getCod_ste() {
 		return cod_ste;
 	}
 
-	public void setCod_ste(int cod_ste) {
+	public void setCod_ste(Long cod_ste) {
 		this.cod_ste = cod_ste;
 	}
 

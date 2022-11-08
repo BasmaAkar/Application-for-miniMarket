@@ -27,7 +27,7 @@ public class Article implements Serializable{
 	private float qteStock;
 	
 	
-	@OneToOne(mappedBy="article")
+    @OneToOne(cascade = { CascadeType.REMOVE, CascadeType.PERSIST },mappedBy="article")
 	private Ligne_cmd lignescmd;
 	
     @OneToOne(cascade = { CascadeType.REMOVE, CascadeType.PERSIST },mappedBy="article")

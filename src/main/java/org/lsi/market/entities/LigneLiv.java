@@ -17,7 +17,7 @@ public class LigneLiv {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int num_ligneliv;
+	private Long num_ligneliv;
 	
 	@Column(name = "quentite_livre", nullable = false)
 	private int qte_liv;
@@ -34,17 +34,17 @@ public class LigneLiv {
 		
 	}
 
-	public LigneLiv(int num_ligneliv, int qte_liv) {
+	public LigneLiv(Long num_ligneliv, int qte_liv) {
 		super();
 		this.num_ligneliv = num_ligneliv;
 		this.qte_liv = qte_liv;
 	}
 
-	public int getNum_ligneliv() {
+	public Long getNum_ligneliv() {
 		return num_ligneliv;
 	}
 
-	public void setNum_ligneliv(int num_ligneliv) {
+	public void setNum_ligneliv(Long num_ligneliv) {
 		this.num_ligneliv = num_ligneliv;
 	}
 

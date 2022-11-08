@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface LigneLivRepository extends JpaRepository<LigneLiv, Integer>{
+public interface LigneLivRepository extends JpaRepository<LigneLiv, Long>{
 
 }

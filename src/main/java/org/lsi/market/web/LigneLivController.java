@@ -2,6 +2,7 @@ package org.lsi.market.web;
 
 import java.util.List;
 
+
 import org.lsi.market.dao.ArticleRepository;
 import org.lsi.market.dao.LigneLivRepository;
 import org.lsi.market.dao.LivraisonRepository;
@@ -59,11 +60,16 @@ public class LigneLivController {
 	@PostMapping("/ligneLivs")
 	public String saveLigneLiv(@ModelAttribute("ligneLiv") LigneLiv ligneLiv) {
 		ligneLivRepository.save(ligneLiv);
+		Long id =ligneLiv.getArticle().getCodeArt();
+		Article article= articlerepository.findById(id).get();
+		article.setQteStock(ligneLiv.getQte_liv());
+
+		articlerepository.save(article);
 		return "redirect:/ligneLivs";
 	}
 	
 	@GetMapping("/ligneLivs/edit/{id}")
-	public String editLigneCmdForm(@PathVariable Integer id, Model model) {
+	public String editLigneCmdForm(@PathVariable Long id, Model model) {
 		model.addAttribute("ligneLiv", ligneLivRepository.findById(id).get());
 		 List<Livraison> Livraisons= livraisonRepository.findAll(); 
 			model.addAttribute("livraisons", Livraisons);
@@ -92,9 +98,11 @@ public class LigneLivController {
 	// handler method to handle delete student request
 	
 	@GetMapping("/ligneLivs/{id}")
-	public String deleteLigneLiv(@PathVariable Integer id) {
+	public String deleteLigneLiv(@PathVariable Long id) {
+		
 		ligneLivRepository.deleteById(id);
 		return "redirect:/ligneLivs";
 	}
+	
 	
 }

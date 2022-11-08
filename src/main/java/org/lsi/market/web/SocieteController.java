@@ -64,7 +64,8 @@ public class SocieteController {
 		// set employee as a model attribute to pre-populate the form
 		model.addAttribute("societe", societe);
 		model.addAttribute("pageTitle", "Edit Commande");
-
+		 List<Fournisseur> fournisseurs= fournisseurRepository.findAll(); 
+			model.addAttribute("fournisseurs", fournisseurs);
 		return "create_societe";
 	}
 
